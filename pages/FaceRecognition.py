@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from PIL import Image
 import joblib
 
-listmodels = [ 'Khang', 'Nam', 'ThayDuc', 'Tung']
+listmodels = [ 'Khang', 'Nam', 'Tung']
 
 st.markdown("# Face Recognition")
 st.sidebar.markdown("# Face Recognition")
@@ -21,7 +21,7 @@ def get_value(val,my_dict):
         if val == key:
             return value
 
-app_mode = st.sidebar.selectbox('Select Page',['Upload Image Face Detection','Real Time Face Detection','Real Time Face Recognition',]) 
+app_mode = st.sidebar.selectbox('Select Page',['Real Time Face Detection','Real Time Face Recognition',]) 
 if app_mode == 'Real Time Face Detection':
     st.title("Real Time Face Detection")
     def visualize(input, faces, fps, thickness=2):
@@ -103,7 +103,7 @@ if app_mode == 'Real Time Face Detection':
         FRAME_WINDOW.image(frame, channels='BGR') 
   
 
-elif app_mode == 'Real Time Face Recognition':
+else:
     st.title("Real Time Face Recognition")
     def visualize(input, faces, fps, thickness=2):
         if faces[1] is not None:
@@ -192,8 +192,4 @@ elif app_mode == 'Real Time Face Recognition':
 
         # Visualize results
         FRAME_WINDOW.image(frame, channels='BGR') 
-    
-   
-else:
-    
-   
+  
